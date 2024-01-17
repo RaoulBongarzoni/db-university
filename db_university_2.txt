@@ -1,0 +1,53 @@
+JOIN
+
+
+
+1
+SELECT students.* FROM `students` JOIN degrees ON students.degree_id = degrees.id WHERE degrees.name = 'Corso di laurea in Economia';
+
+
+
+2
+SELECT degrees.* FROM `degrees` JOIN departments ON degrees.department_id = departments.id WHERE departments.name = 'Dipartimento di Neuroscienze' AND degrees.level = 'magistrale';
+
+
+
+3
+select courses.* from courses join course_teacher on courses.id = course_teacher.course_id join teachers on course_teacher.teacher_id = teachers.id where teachers.name = 'Fulvio' and teachers.surname = 'Amato';
+
+
+
+4
+select students.surname, students.name, degrees.name as 'deg' , departments.name as 'dep' 
+from students 
+Join degrees on students.degree_id = degrees.id 
+join departments on degrees.department_id = departments.id
+ORDER BY students.surname, students.name;
+
+
+
+5
+select degrees.name as 'deg' , courses.name as 'course' ,teachers.name, teachers.surname 
+from degrees
+join courses on degrees.id = courses.degree_id
+join course_teacher on courses.id = course_teacher.course_id
+join teachers on course_teacher.teacher_id = teachers.id;
+
+
+6
+
+
+7
+
+
+-------------------------------------------------------
+
+
+GROUP BY
+
+1
+
+SELECT COUNT(*) as number, enrolment_date 
+FROM `students`
+GROUP by enrolment_date
+
